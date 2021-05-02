@@ -14,7 +14,7 @@ namespace TaxCounter
             VerifyInput();
             decimal taxResult = CountTax();
             decimal incomeAfterTaxes = CountIncomeAfterTaxes(taxResult);
-            decimal.TryParse(txtOtherCommission.Text, out decimal otherCommission);
+            decimal.TryParse(ParseDot(txtOtherCommission.Text), out decimal otherCommission);
             decimal commission = CountTransferCommission(incomeAfterTaxes, otherCommission);
 
             lblCommissionDisplay.Content = commission;
@@ -41,16 +41,16 @@ namespace TaxCounter
 
         private decimal CountTax()
         {
-            decimal.TryParse(txtIncome.Text, out decimal salary);
-            decimal.TryParse(txtEsv.Text, out decimal esv);
-            decimal.TryParse(txtEp.Text, out decimal ep);
+            decimal.TryParse(ParseDot(txtIncome.Text), out decimal salary);
+            decimal.TryParse(ParseDot(txtEsv.Text), out decimal esv);
+            decimal.TryParse(ParseDot(txtEp.Text), out decimal ep);
 
             return salary * (ep / 100) + esv;
         }
 
         private decimal CountIncomeAfterTaxes(decimal tax)
         {
-            decimal.TryParse(txtIncome.Text, out decimal salary);
+            decimal.TryParse(ParseDot(txtIncome.Text), out decimal salary);
             return salary - tax;
         }
 
@@ -58,13 +58,18 @@ namespace TaxCounter
         {
             decimal readyForTransfer = incomeAfterTaxes - otherCommisions;
             double income = (double)readyForTransfer;
-            double.TryParse(txtCommissionPersent.Text, out double percent);
+            double.TryParse(ParseDot(txtCommissionPersent.Text), out double percent);
 
             double percentNum = (percent / 100) + 1;
             decimal salaryWithoutCommission = (decimal)(income / percentNum);
             decimal transferCommission = readyForTransfer - salaryWithoutCommission;
 
             return transferCommission;
+        }
+
+        private string ParseDot(string input)
+        {
+            return input.Replace(".", ",");
         }
     }
 }
