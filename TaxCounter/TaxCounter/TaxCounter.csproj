@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <StartupObject>TaxCounter.App</StartupObject>
+    <ApplicationIcon>tax_icon.ico</ApplicationIcon>
+	<OutputType>Exe</OutputType>
+    <RootNamespace>TaxCounter</RootNamespace>
+    <PublishSingleFile>true</PublishSingleFile>
+	 <RuntimeIdentifier>win-x86</RuntimeIdentifier>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="tax_icon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

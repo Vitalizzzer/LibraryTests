@@ -1,0 +1,43 @@
+﻿<Window x:Name="winTaxCounter" x:Class="TaxCounter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TaxCounter"
+        mc:Ignorable="d"
+        Title="Податковий міні калькулятор" Height="506" Width="456">
+    <Grid Margin="0,0,0,-6">
+        <Label x:Name="lblIncome" Content="Прибуток, грн.:" HorizontalAlignment="Left" Margin="20,15,0,0" VerticalAlignment="Top" Height="30" Width="106" FontWeight="Bold"/>
+        <TextBox x:Name="txtIncome" HorizontalAlignment="Left" Height="23" Margin="181,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="213"/>
+        <Label x:Name="lblEsv" Content="Єдиний Соціальний &#xA;Внесок (ЄСВ), грн.:" HorizontalAlignment="Left" Margin="21,63,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="41"/>
+        <Label x:Name="lblEp" Content="Єдиний податок (ЄП), % : " HorizontalAlignment="Left" Margin="21,112,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="lblTotalTax" Content="Загальна сума податку, грн.:" HorizontalAlignment="Left" Margin="22,280,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="lblCleanIncome" Content="Чистий дохід &#xA;(без податків і комісій), грн.:" HorizontalAlignment="Left" Margin="22,354,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.4,-0.605" FontWeight="Bold"/>
+        <GroupBox x:Name="groupBoxResult" Header="Розрахунок" HorizontalAlignment="Left" Height="148" Margin="15,257,0,0" VerticalAlignment="Top" Width="402"/>
+        <TextBox x:Name="txtEsv" HorizontalAlignment="Left" Height="23" Margin="181,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="213"/>
+        <TextBox x:Name="txtEp" HorizontalAlignment="Left" Height="23" Margin="181,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="213"/>
+        <Button x:Name="btnResult" Content="Розрахувати" HorizontalAlignment="Left" Height="26" Margin="15,420,0,0" VerticalAlignment="Top" Width="402" Click="BtnResult_Click"/>
+        <Label x:Name="lblTotalTaxDisplay" Content="0" HorizontalAlignment="Left" Height="23" Margin="197,280,0,0" VerticalAlignment="Top" Width="180"/>
+        <Label x:Name="lblCleanIncomeDisplay" Content="0" HorizontalAlignment="Left" Margin="197,371,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="177" Height="23">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.236"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label x:Name="lblOtherCommission" Content="Інші комісії, грн.:" HorizontalAlignment="Left" Height="28" Margin="22,214,0,0" VerticalAlignment="Top" Width="156" FontWeight="Bold"/>
+        <TextBox x:Name="txtOtherCommission" HorizontalAlignment="Left" Height="23" Margin="182,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="212"/>
+        <Label x:Name="lblCommission" Content="Комісія за переказ, грн.:" HorizontalAlignment="Left" Height="26" Margin="21,306,0,0" VerticalAlignment="Top" Width="155" FontWeight="Bold"/>
+        <Label x:Name="lblCommissionDisplay" Content="0" HorizontalAlignment="Left" Margin="197,306,0,0" VerticalAlignment="Top" Width="212" Height="23"/>
+        <Label x:Name="lblTotalCommissions" Content="Всі комісії банку, грн.:" HorizontalAlignment="Left" Margin="22,334,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="lblTotalCommissionsDisplay" Content="0" HorizontalAlignment="Left" Height="23" Margin="197,335,0,0" VerticalAlignment="Top" Width="180"/>
+        <Label x:Name="lblCommissionPercent" Content="Комісія за переказ, %:" HorizontalAlignment="Left" Margin="22,174,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="txtCommissionPersent" HorizontalAlignment="Left" Height="23" Margin="182,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="211"/>
+        <GroupBox x:Name="groupBoxCommission" Header="Комісії банку" HorizontalAlignment="Left" Height="99" Margin="15,153,0,0" VerticalAlignment="Top" Width="403"/>
+        <GroupBox x:Name="groupBoxTax" Header="Податки" HorizontalAlignment="Left" Height="99" Margin="15,49,0,0" VerticalAlignment="Top" Width="402"/>
+
+    </Grid>
+</Window>
