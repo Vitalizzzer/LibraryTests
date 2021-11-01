@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TaxCalculator
@@ -35,7 +28,7 @@ namespace TaxCalculator
         {
             if (IsEmpty())
             {
-                MessageBox.Show("Заповніть, будь ласка, поле 'Зарплата'");
+                MessageBox.Show("Заповніть, будь ласка, поле 'Прибуток'");
             }
         }
 
