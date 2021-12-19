@@ -115,7 +115,7 @@ namespace TaxCalculator
             this.lblEp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblEp.Location = new System.Drawing.Point(14, 86);
             this.lblEp.Name = "lblEp";
-            this.lblEp.Size = new System.Drawing.Size(194, 23);
+            this.lblEp.Size = new System.Drawing.Size(207, 23);
             this.lblEp.TabIndex = 7;
             this.lblEp.Text = "Єдиний Податок (ЄП), %:";
             // 
