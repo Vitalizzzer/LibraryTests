@@ -137,6 +137,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line 13
  testRunner.When(string.Format("delete book by {0}", author), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
+#line 14
+ testRunner.Then("book is absent", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
             }
             this.ScenarioCleanup();
         }

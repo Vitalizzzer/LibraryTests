@@ -2,7 +2,7 @@
 	Verify Library UI functionlity
 
 @mytag
-Scenario Outline: Add new book
+Scenario Outline: Add and delete new book
 	Given author name <Author>
 	And book title <Title>
 	And choose book genre <Genre>
@@ -11,7 +11,7 @@ Scenario Outline: Add new book
 	When click <Button> button
 	Then the book appears in the db
 	When delete book by <Author>
-	#Then book is deleted
+	Then book is absent
 
 	Examples: 
 	| Author       | Title       | Genre  | Info              | Button   |

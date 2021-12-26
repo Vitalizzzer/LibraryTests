@@ -2,12 +2,8 @@
 using LibraryTests.Pages.MainPage;
 using log4net;
 using NUnit.Framework;
-using OpenQA.Selenium.Appium;
 using OpenQA.Selenium.Appium.Windows;
-using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Globalization;
 using TechTalk.SpecFlow;
 
 namespace LibraryTests.Steps
@@ -77,14 +73,13 @@ namespace LibraryTests.Steps
         public void VerifyBookAppearsInDb()
         {
             bool isPresentList = false;
-           var booksPage1 =  GetBooksFromPage();
+            var booksPage =  GetBooksFromPage();
             var author = scenarioContext.Get<string>("author");
             var title = scenarioContext.Get<string>("title");
             var genre = scenarioContext.Get<string>("genre");
             var date = scenarioContext.Get<string>("date");
-           // var formattedDate = FormatDateTime(date);
 
-            foreach (var book in booksPage1)
+            foreach (var book in booksPage)
             {
                 if (book.Value.Author.Equals(author))
                 {
@@ -99,6 +94,24 @@ namespace LibraryTests.Steps
             {
                 Assert.Fail("Expected book is ot found: Author: " + author + " , Title: " + title + " , Genre: " + genre);
             }
+        }
+
+        [Then(@"book is absent")]
+        public void VerifyBookIsAbsent()
+        {
+            var booksPage = GetBooksFromPage();
+            var author = scenarioContext.Get<string>("author");
+            var title = scenarioContext.Get<string>("title");
+
+            foreach (var book in booksPage)
+            {
+                if (book.Value.Author.Equals(author) && book.Value.Title.Equals(title))
+                {
+                    Assert.Fail("Book with Author: '" + book.Value.Author + "' and Title: '" + book.Value.Title + "' is unexpectedly present");
+                }
+            }
+
+            Assert.Pass();
         }
 
         [When("delete book by (.*)")]
@@ -140,8 +153,5 @@ namespace LibraryTests.Steps
             }
             return bookDic;
         }
-
-
-
     }
 }
