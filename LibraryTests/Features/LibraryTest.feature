@@ -10,7 +10,9 @@ Scenario Outline: Add new book
 	And enter info <Info>
 	When click <Button> button
 	Then the book appears in the db
+	When delete book by <Author>
+	#Then book is deleted
 
 	Examples: 
-	| Author     | Title     | Genre  | Info              | Button   |
-	| New Author | New Title | Poetry | Interesting book! | Add Book |
+	| Author       | Title       | Genre  | Info              | Button   |
+	| 1 New Author | 1 New Title | Poetry | Interesting book! | Add Book |

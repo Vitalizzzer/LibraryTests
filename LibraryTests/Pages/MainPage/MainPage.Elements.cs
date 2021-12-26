@@ -1,9 +1,4 @@
 ﻿using OpenQA.Selenium.Appium.Windows;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LibraryTests.Pages.MainPage
 {
@@ -19,6 +14,12 @@ namespace LibraryTests.Pages.MainPage
         public WindowsElement TxtInfo => _driver.FindElementByAccessibilityId("TxtInfo");
         public WindowsElement BtnImage => _driver.FindElementByAccessibilityId("BtnImage");
         public WindowsElement BtnAddBook => _driver.FindElementByAccessibilityId("BtnAddBook");
+        public WindowsElement DataGrid => _driver.FindElementByAccessibilityId("DataGrid");
+        public WindowsElement MenuEdit => _driver.FindElementByAccessibilityId("EditMenuItem");
+        public WindowsElement MenuDelete => _driver.FindElementByAccessibilityId("DeleteMenuItem");
+        public WindowsElement MenuBrowse => _driver.FindElementByAccessibilityId("BrowseMenuItem");
+        public WindowsElement BtnConfirmDeletion => _driver.FindElementByAccessibilityId("6");
+        public WindowsElement BtnCancelDeletion => _driver.FindElementByAccessibilityId("7");
 
     }
 }

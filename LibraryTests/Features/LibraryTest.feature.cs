@@ -76,7 +76,7 @@ namespace LibraryTests.Features
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Add new book")]
         [NUnit.Framework.CategoryAttribute("mytag")]
-        [NUnit.Framework.TestCaseAttribute("New Author", "New Title", "Poetry", "Interesting book!", "Add Book", null)]
+        [NUnit.Framework.TestCaseAttribute("1 New Author", "1 New Title", "Poetry", "Interesting book!", "Add Book", null)]
         public virtual void AddNewBook(string author, string title, string genre, string info, string button, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -133,6 +133,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
 #line 12
  testRunner.Then("the book appears in the db", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 13
+ testRunner.When(string.Format("delete book by {0}", author), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             }
             this.ScenarioCleanup();

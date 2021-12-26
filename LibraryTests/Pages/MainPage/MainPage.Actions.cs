@@ -1,4 +1,7 @@
-﻿using OpenQA.Selenium.Appium.Windows;
+﻿using OpenQA.Selenium.Appium;
+using OpenQA.Selenium.Appium.Windows;
+using OpenQA.Selenium.Interactions;
+using System.Collections.ObjectModel;
 
 namespace LibraryTests.Pages.MainPage
 {
@@ -41,10 +44,46 @@ namespace LibraryTests.Pages.MainPage
         {
             BtnImage.Click();
         }
-
         public void ClickAddBook()
         {
             BtnAddBook.Click();
+        }
+        public ReadOnlyCollection<AppiumWebElement> GetRowsFromDataGrid()
+        {
+            var rowsCollection = DataGrid.FindElementsByClassName("DataGridRow");
+            return rowsCollection;
+        }
+
+        public ReadOnlyCollection<AppiumWebElement> GetCellsFromDataGridRow (AppiumWebElement row)
+        {
+            var cellsCollection = row.FindElementsByClassName("DataGridCell");
+            return cellsCollection;
+        }
+
+        public void RightClickGridRow(AppiumWebElement element)
+        {
+            Actions actions = new Actions(_driver);
+            actions.ContextClick(element).Perform();          
+        }
+
+        public void ClickEditMenuItem()
+        {
+            MenuEdit.Click();
+        }
+
+        public void ClickDeleteMenuItem()
+        {
+            MenuDelete.Click();
+        }
+
+        public void ClickBrowseMenuItem()
+        {
+            MenuBrowse.Click();
+        }
+
+        public void ConfirmDeletion()
+        {
+            BtnConfirmDeletion.Click();
         }
     }
 }
